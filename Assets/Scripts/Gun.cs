@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     public Status State { get; private set; }
     public Transform fireTransform;
     public LayerMask targetLayer;
+    public ParticleSystem effect;
     private LineRenderer lineRenderer;
 
     private AudioSource gunAudioPlayer;
@@ -76,6 +77,7 @@ public class Gun : MonoBehaviour
     private IEnumerator CoShotEffect(Vector3 hitPosition)
     {
         gunAudioPlayer.PlayOneShot(fireClip);
+        effect.Play();
 
         lineRenderer.SetPosition(0, fireTransform.position);
         lineRenderer.SetPosition(1, hitPosition);

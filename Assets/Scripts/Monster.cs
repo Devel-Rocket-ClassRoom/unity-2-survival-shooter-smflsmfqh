@@ -15,6 +15,7 @@ public class Monster : LivingEntity
 
     public Transform target;
     public LayerMask targetLayer;
+    public ParticleSystem hitEffect;
 
     private NavMeshAgent agent;
     private Animator monsterAnimator;
@@ -206,9 +207,13 @@ public class Monster : LivingEntity
     }
      public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
     {
-        base.OnDamage(damage, hitPoint, hitNormal);
-        Debug.Log($"Monster OnDamage: {damage}");
         monsterAudioPlayer.PlayOneShot(hitClip);
+
+        base.OnDamage(damage, hitPoint, hitNormal);
+
+        hitEffect.transform.position = hitPoint;
+        hitEffect.transform.forward = hitNormal;
+        hitEffect.Play();
     }
 
     public void StartSinking()

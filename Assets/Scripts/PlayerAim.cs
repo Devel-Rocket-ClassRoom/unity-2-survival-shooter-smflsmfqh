@@ -19,21 +19,9 @@ public class PlayerAim : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         GetPos();
-        //transform.LookAt(headAim);
+        transform.LookAt(headAim);
 
-        Vector3 dir = headAim - transform.position;
-        dir.y = 0;
-
-        if (dir != Vector3.zero)
-        {
-            Quaternion targetRot = Quaternion.LookRotation(dir);
-
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                targetRot,
-                rotateSpeed * Time.deltaTime
-            );
-        }
+       
     }
 
     private void GetPos()
@@ -41,7 +29,8 @@ public class PlayerAim : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance, floorLayer))
             if (hit.collider.CompareTag("Background"))
             {
-                headAim = hit.point;
+                headAim = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                
             }
     }
 
