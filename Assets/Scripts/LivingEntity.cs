@@ -1,19 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LivingEntity : MonoBehaviour, IDamageable
 {
-    private float startingHealth = 100f;    
+    protected float startingHealth = 100f;    
     public float Health { get; private set; }   
-    public bool IsDead { get; private set; }    
+    public bool IsDead { get; private set; }
 
-    protected virtual void Awake()
+    public UnityEvent onDead;
+
+    protected virtual void OnEnable()
     {
         IsDead = false;
         Health = startingHealth;
     }
-    public void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
+    public virtual void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
     {
-        Health = damage;    
+        Health -= damage;    
         if (Health <= 0f)
         {
             Health = 0f;
@@ -24,5 +27,6 @@ public class LivingEntity : MonoBehaviour, IDamageable
     {
         if (IsDead) return; 
         IsDead = true;
+        onDead?.Invoke();
     }   
 }

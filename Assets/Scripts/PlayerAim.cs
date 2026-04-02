@@ -7,6 +7,7 @@ public class PlayerAim : MonoBehaviour
     private Vector3 headAim;
     private Ray ray;
     private float rayDistance = 40f;
+    public float rotateSpeed = 360f;
 
     private void Start()
     {
@@ -18,7 +19,21 @@ public class PlayerAim : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         GetPos();
-        transform.LookAt(headAim);
+        //transform.LookAt(headAim);
+
+        Vector3 dir = headAim - transform.position;
+        dir.y = 0;
+
+        if (dir != Vector3.zero)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(dir);
+
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRot,
+                rotateSpeed * Time.deltaTime
+            );
+        }
     }
 
     private void GetPos()

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6573491221575619448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6846762501506581333}
+  - component: {fileID: 4447057683746892219}
+  m_Layer: 0
+  m_Name: MonsterSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6846762501506581333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573491221575619448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.442, y: 0.68294, z: 1.55298}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4447057683746892219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573491221575619448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc02416a7caf8a40879fdb7099f7d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterSpawner
+  zombunnyPrefab: {fileID: 5847080044771140303, guid: 4a123bfd3611a774894b6977b14e8b5a, type: 3}
+  zombearPrefab: {fileID: 1407675268983872476, guid: 8eebb5906f15d4d49b12578902490114, type: 3}
+  hellephantPrefab: {fileID: 7946247957397473946, guid: 365c2de1b4230354983e44263e8d157c, type: 3}
+  monsterData:
+  - {fileID: 11400000, guid: 08cf748fca0613f4580387efd4418213, type: 2}
+  - {fileID: 11400000, guid: f15826541ed932449b24b4424ece8641, type: 2}
+  - {fileID: 11400000, guid: 89323b9a3a49e4b42bf5be176c5c8e4f, type: 2}
+  spawnPoints: []
+  maxDistance: 15
