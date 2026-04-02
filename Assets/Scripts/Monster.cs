@@ -210,9 +210,10 @@ public class Monster : LivingEntity
         monsterAudioPlayer.PlayOneShot(hitClip);
 
         base.OnDamage(damage, hitPoint, hitNormal);
-
         hitEffect.transform.position = hitPoint;
         hitEffect.transform.forward = hitNormal;
+        hitEffect.Stop();
+        
         hitEffect.Play();
     }
 
