@@ -27,6 +27,14 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
+        if (effect == null)
+        {
+            Debug.LogError("ParticleSystem 연결 안됨");
+        }
+        else
+        {
+            Debug.Log("파티클");
+        }
         lineRenderer = GetComponent<LineRenderer>();
         gunAudioPlayer = GetComponent<AudioSource>();
 
@@ -77,6 +85,8 @@ public class Gun : MonoBehaviour
     private IEnumerator CoShotEffect(Vector3 hitPosition)
     {
         gunAudioPlayer.PlayOneShot(fireClip);
+        effect.transform.position = fireTransform.position;
+        effect.transform.rotation = fireTransform.rotation;
         effect.Play();
 
         lineRenderer.SetPosition(0, fireTransform.position);
