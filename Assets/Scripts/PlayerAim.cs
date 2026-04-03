@@ -6,18 +6,19 @@ public class PlayerAim : MonoBehaviour
 
     private Vector3 headAim;
     private Ray ray;
+    private Camera mainCam;
     private float rayDistance = 40f;
     public float rotateSpeed = 360f;
 
     private void Start()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        mainCam = Camera.main;
 
     }
 
     private void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = mainCam.ScreenPointToRay(Input.mousePosition);
         GetPos();
         transform.LookAt(headAim);
 
