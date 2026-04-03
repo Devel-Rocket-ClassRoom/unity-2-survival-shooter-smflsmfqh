@@ -111,9 +111,6 @@ public class PlayerHealth : LivingEntity
         playerAudioPlayer.PlayOneShot(deathClip);
         playerAnimator.SetTrigger("Die");
 
-        //uiGameOver.enabled = true;
-        //gameOverText.enabled = true;
-
         playerMovement.enabled = false;
         playerShooter.enabled = false;
     }

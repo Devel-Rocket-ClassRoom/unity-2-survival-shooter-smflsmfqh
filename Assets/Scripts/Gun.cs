@@ -27,14 +27,6 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
-        if (effect == null)
-        {
-            Debug.LogError("ParticleSystem 연결 안됨");
-        }
-        else
-        {
-            Debug.Log("파티클");
-        }
         lineRenderer = GetComponent<LineRenderer>();
         gunAudioPlayer = GetComponent<AudioSource>();
 
